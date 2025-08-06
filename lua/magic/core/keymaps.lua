@@ -18,3 +18,11 @@ keymap.set("n", "<leader>to", ":tabnew<CR>") --open new tab
 keymap.set("n", "<leader>tx", ":tabclose<CR>") --close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>")-- go to previous tab
+
+-- vs code like keymaps
+--keymap.set("n", "<D-Right>", "$") -- jump to end of line in normal mode
+--keymap.set("i", "<D-Right>", "$") -- jump to end of line in insert mode
+keymap.set("n", "<leader>l", "$", {noremap = true})
+keymap.set("n", "<leader>j", "^", {noremap = true})
+--keymap.set("n", "", "") -- jump to next whitespace in normal mode
+--keymap.set("i", "", "") -- jump to next whitespace in insert mode
