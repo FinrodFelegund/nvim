@@ -10,7 +10,7 @@ return {
 
 
   config = function()
-    --local lspconfig = require("lspconfig")
+    local lspconfig = require("lspconfig")
     --local mason_lspconfig = require("mason-lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
