@@ -56,7 +56,7 @@ return {
     })
 
     local capabilities = cmp_nvim_lsp.default_capabilities()
-    local util = require(lspconfig.util)
+    local util = require("lspconfig.util")
     local function get_python_path(workspace)
       if vim.env.VIRTUAL_ENV then
         return util.path.join(vim.env.VIRTUAL_ENV, "bin", "python")
