@@ -6,6 +6,9 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
   },
+
+
+
   config = function()
     --local lspconfig = require("lspconfig")
     --local mason_lspconfig = require("mason-lspconfig")
@@ -53,6 +56,19 @@ return {
     })
 
     local capabilities = cmp_nvim_lsp.default_capabilities()
+    local util = require(lspconfig.util)
+    local function get_python_path(workspace)
+      if vim.env.VIRTUAL_ENV then
+        return util.path.join(vim.env.VIRTUAL_ENV, "bin", "python")
+      end
+      local venv_path = util.path.join(workspace, ".venv")
+      if vim.fn.isdirectory(venv_path) == 1 then
+        return util.path.join(venv_path, "bin", "python")
+      end
+      return "python3"
+    end 
+    
+
 
     vim.diagnostic.config({
       signs = {
@@ -70,7 +86,13 @@ return {
       capabilities = capabilities,
     })
 
-
+    vim.lsp.config("pyright", {
+      settings = {
+        python = {
+	  pythonPath = get_python_path(vim.fn.getcwd()),  
+	},
+      },
+    })
    
     vim.lsp.config("lua_ls", {
       settings = {

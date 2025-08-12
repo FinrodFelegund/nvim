@@ -1,3 +1,11 @@
+--local function get_python_path(workspace)
+--  if vim.env.VIRTUAL_ENV then
+--    return vim.env.VIRTUAL_ENV .. 'bin/python'
+--  end
+
+--  local venv_path = util
+
+
 return {
   "williamboman/mason.nvim",
   dependencies = {
